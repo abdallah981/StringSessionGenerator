@@ -406,8 +406,8 @@ async def generator_and_about(app,m):
       text += "🐍 اللـغـة الـبـرمـجـيـة - بـايـثـون "
       text += f"\n🔥 اصـدار بايروجرام {v}"
       text += f"\n🌱 اصـدار تـيـلـيـثـون {v2}"
-      text += f"\n\n👤 مـطـور الـبـوت: @D_S_I"
-      text += f"\n\n🚸 قناة السورس: @SOURCE_ZE"
+      text += f"\n\n👤 مـطـور الـبـوت: @IC_19"
+      text += f"\n\n🚸 قناة السورس: @EF_19"
       await m.reply(text, quote=True)
 
     if m.text == "بـايـروجـرام":
@@ -421,7 +421,7 @@ async def generator_and_about(app,m):
         await c.connect()
         await rep.delete()
         phone_ask = await m.chat.ask(
-          "⎆ يـرجـى إرسـال رقـم هاتفـك مـع رمـز الدولة مثــال 📱: \n+963995×××××",
+          "⎆ يـرجـى إرسـال رقـم هاتفـك مـع رمـز الدولة مثــال 📱: \n+9677788×××××",
           reply_to_message_id=m.id, filters=filters.text
         )
         phone = phone_ask.text
@@ -439,12 +439,12 @@ async def generator_and_about(app,m):
         try:
           await c.sign_in(phone, hash, code)
         except SessionPasswordNeeded:
-          password_ask = await m.chat.ask("⎆ يـرجـى إرسـال التحقق الخـاص بحسـابك ..", filters=filters.text)
+          password_ask = await m.chat.ask("⎆ يـرجـى إرسـال كلمة المرور الخـاص بحسـابك ..", filters=filters.text)
           password = password_ask.text
           try:
             await c.check_password(password)
           except PasswordHashInvalid:
-            return await password_ask.reply("» التحقـق بخطوتيـن الخـاص بـك غيـر صـالح.\nيرجـى إعـادة استخـراج الجلسـة مـرة أخـرى.\n/start", quote=True)
+            return await password_ask.reply("» كلمة المرور الخـاص بـك غيـر صـالح.\nيرجـى إعـادة استخـراج الجلسـة مـرة أخـرى.\n/start", quote=True)
         except (PhoneCodeInvalid, PhoneCodeExpired):
           return await code_ask.reply("رمز الهاتف غير صالح!", quote=True)
         try:
@@ -478,7 +478,7 @@ async def generator_and_about(app,m):
         c = TelegramClient(StringSession(), api_id, api_hash)
         await c.connect()
         await rep.delete()
-        phone_ask = await m.chat.ask( "⎆ يـرجـى إرسـال رقـم هاتفـك مـع رمـز الدولة مثــال 📱: \n+963995××××× ",
+        phone_ask = await m.chat.ask( "⎆ يـرجـى إرسـال رقـم هاتفـك مـع رمـز الدولة مثــال 📱: \n+9677788××××× ",
           reply_to_message_id=m.id, filters=filters.text
         )
         phone = phone_ask.text
@@ -493,12 +493,12 @@ async def generator_and_about(app,m):
         try:
           await c.sign_in(phone, code, password=None)
         except SessionPasswordNeededError:
-          password_ask = await m.chat.ask("⎆ يـرجـى إرسـال التحقق الخـاص بحسـابك ..", filters=filters.text)
+          password_ask = await m.chat.ask("⎆ يـرجـى ارسال كلمة المرور الخـاص بحسـابك ..", filters=filters.text)
           password = password_ask.text
           try:
             await c.sign_in(password=password)
           except PasswordHashInvalidError:
-            return await password_ask.reply("» التحقـق بخطوتيـن الخـاص بـك غيـر صـالح.\nيرجـى إعـادة استخـراج الجلسـة مـرة أخـرى.\n/start", quote=True)
+            return await password_ask.reply("» كلمة المرور غيـر صحيح.\nيرجـى إعـادة استخـراج الجلسـة مـرة أخـرى.\n/start", quote=True)
         except (PhoneCodeExpiredError, PhoneCodeInvalidError):
           return await code_ask.reply("رمز الهاتف غير صالح!", quote=True)
         await c.start(bot_token=phone)
@@ -521,5 +521,5 @@ async def generator_and_about(app,m):
 
 app.start()
 bot.start()
-print("تم تشغيل البوت @D_S_I")
+print("تم تشغيل البوت @IC_19")
 idle()
